@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/shorten', function () {
+    return view('shorten');
+});
+Route::get('/analytics', function () {
+    return view('analytics');
+})->name('analytics');
