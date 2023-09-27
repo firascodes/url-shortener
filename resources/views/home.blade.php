@@ -5,11 +5,11 @@
             <div class=" text-cyan-950 text-2xl font-semibold font-['Inter']">Turn your
                 Long links into shorter verions!</div>
             <div class="mt-5 flex justify-center gap-4">
-                <a href="/shorten">
+                <a href="/shortenPage">
                     <button
                         class=" bg-red-500 rounded-[49px] hover:underline text-white text-2xl font-semibold font-['Inter'] px-4 py-2">Shorten</button>
                 </a>
-                <a href="/analytics">
+                <a href="/analyticsPage">
                     <button
                         class=" bg-red-500 rounded-[49px] hover:underline text-white text-2xl font-semibold font-['Inter'] px-4 py-2">Analytics</button>
                 </a>
