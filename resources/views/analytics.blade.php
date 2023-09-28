@@ -1,7 +1,7 @@
 <x-layout>
     <x-nav />
     <main class="text-center">
-        <h1 class="text-cyan-950 text-5xl font-bold font-['Inter']  mt-24">Analytics</h1>
+        <h1 class="text-cyan-950 text-5xl font-bold font-['Inter'] mt-16">Analytics</h1>
         {{-- @foreach($links as $link)
         <p>{{ $link->original_url }} -> {{url('/')}}/{{ $link->shortened_url }} | Clicks: {{ $link->click_count }}</p>
         @endforeach
@@ -18,6 +18,9 @@
                                 <tr>
                                     <th scope="col"
                                         class="px-6 py-3 text-center text-s font-bold text-gray-500 dark:text-gray-200 uppercase tracking-wider">
+                                        Id</th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-center text-s font-bold text-gray-500 dark:text-gray-200 uppercase tracking-wider">
                                         Long Url</th>
                                     <th scope="col"
                                         class="px-6 py-3 text-center text-s font-bold text-gray-500 dark:text-gray-200 uppercase tracking-wider">
@@ -30,14 +33,17 @@
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach($links as $link)
                                 <tr>
-                                    <td class="font-medium px-6 py-4 whitespace-nowrap text-cyan-950">{{
+                                    <td class="font-medium px-6 py-3 whitespace-nowrap text-cyan-950">
+                                        <a href="/analytics/{{$link->id}}">{{$link->id }}</a>
+                                    </td>
+                                    <td class="font-medium px-6 py-3 whitespace-nowrap text-cyan-950">{{
                                         $link->original_url }}</td>
                                     <td
-                                        class="font-medium px-6 py-4 whitespace-nowrap text-red-500 hover:text-cyan-950">
+                                        class="font-medium px-6 py-3 whitespace-nowrap text-red-500 hover:text-cyan-950">
                                         <a href="{{url('/')}}/{{ $link->shortened_url }}">{{url('/')}}/{{
                                             $link->shortened_url }}</a>
                                     </td>
-                                    <td class="font-medium px-6 py-4 whitespace-nowrap text-cyan-950">{{
+                                    <td class="font-medium px-6 py-3 whitespace-nowrap text-cyan-950">{{
                                         $link->click_count }}</td>
                                 </tr>
                                 @endforeach

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalyticsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShortLinkController;
 
@@ -30,5 +31,7 @@ Route::get('/shortenPage', function () {
 Route::post('/shorten', [ShortLinkController::class, 'shorten'])->name('shorten');
 
 Route::get('/analyticsPage', [ShortLinkController::class, 'analytic'])->name('analytic');
+
+Route::get('/analytics/{id}', [AnalyticsController::class, 'show'])->name('analytic.show');
 
 Route::get('/{shortened_url}', [ShortLinkController::class, 'redirectURL'])->name('redirectURL');
