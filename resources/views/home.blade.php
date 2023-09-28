@@ -9,9 +9,10 @@
                     <button
                         class=" bg-red-500 rounded-[49px] hover:underline text-white text-2xl font-semibold font-['Inter'] px-4 py-2">Shorten</button>
                 </a>
-                <a href="/analyticsPage">
+                <a href="#">
                     <button
-                        class=" bg-red-500 rounded-[49px] hover:underline text-white text-2xl font-semibold font-['Inter'] px-4 py-2">Analytics</button>
+                        class=" bg-red-500 rounded-[49px] hover:underline text-white text-2xl font-semibold font-['Inter'] px-4 py-2">Log
+                        In</button>
                 </a>
             </div>
 
