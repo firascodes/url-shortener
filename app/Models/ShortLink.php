@@ -11,5 +11,9 @@ class ShortLink extends Model
     protected $table = 'urls';
     protected $fillable = ['original_url', 'shortened_url', 'click_count'];
 
+    public function clicks()
+    {
+        return $this->hasMany(UrlClick::class, 'url_id');
+    }
 
 }
