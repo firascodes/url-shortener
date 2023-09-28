@@ -28,7 +28,37 @@ class ShortLinkController extends Controller
 
         $fullURL = url('/') . '/' . $link->shortened_url;
 
+        if (request()->expectsJson()) {
+            return response(['fullURL' => $fullURL], 200); //return json response
+        }
+
         return redirect()->back()->with('shortened_url', $fullURL);
+
+    }
+
+    //For Postman API
+    public function shortenAPI(Request $request)
+    {
+        $request->validate([
+            'original_url' => 'required|url'
+        ]);
+
+        $shortened_url = Str::random(6);
+
+        //Incase of a collision! Generate a new one!
+        while (ShortLink::where('shortened_url', $shortened_url)->exists()) {
+            $shortened_url = Str::random(6); //random string of length 6
+        }
+
+        $link = ShortLink::create([
+            'original_url' => $request->original_url,
+            'shortened_url' => $shortened_url,
+        ]);
+
+        $fullURL = url('/') . '/' . $link->shortened_url;
+
+
+        return response(['fullURL' => $fullURL], 200); //return json response
 
     }
 
