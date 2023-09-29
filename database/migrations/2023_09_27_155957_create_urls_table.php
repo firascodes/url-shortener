@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('urls', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained();
-            $table->string('shortened_url')->unique();
+            $table->string('shortened_url')->unique()->nullable();
             $table->string('original_url');
             $table->unsignedBigInteger('click_count')->default(0);
             $table->timestamps();
