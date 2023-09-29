@@ -30,7 +30,7 @@ Route::get('/shortenPage', function () {
 
 Route::post('/shorten', [ShortLinkController::class, 'shorten'])->name('shorten');
 
-Route::get('/analyticsPage', [ShortLinkController::class, 'analytic'])->name('analytic');
+Route::get('/analytics', [ShortLinkController::class, 'analytic'])->name('analytic');
 
 Route::get('/analytics/{id}', [AnalyticsController::class, 'show'])->name('analytic.show');
 

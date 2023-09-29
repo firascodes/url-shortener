@@ -9,7 +9,7 @@
         <!-- For pagination links -->
         {{ $links->links() }} --}}
 
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-5xl mx-auto">
             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 my-10">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -28,12 +28,17 @@
                                     <th scope="col"
                                         class="px-6 py-3 text-center text-s font-bold text-gray-500 dark:text-gray-200 uppercase tracking-wider">
                                         Clicks</th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-center text-s font-bold text-gray-500 dark:text-gray-200 uppercase tracking-wider">
+                                        Analytics</th>
+
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach($links as $link)
                                 <tr>
-                                    <td class="font-medium px-6 py-3 whitespace-nowrap text-cyan-950">
+                                    <td
+                                        class="font-medium px-6 py-3 whitespace-nowrap text-red-500 hover:text-cyan-950 underline">
                                         <a href="/analytics/{{$link->id}}">{{$link->id }}</a>
                                     </td>
                                     <td class="font-medium px-6 py-3 whitespace-nowrap text-cyan-950">{{
@@ -45,6 +50,11 @@
                                     </td>
                                     <td class="font-medium px-6 py-3 whitespace-nowrap text-cyan-950">{{
                                         $link->click_count }}</td>
+                                    </td>
+                                    <td class="font-medium px-6 py-3 whitespace-nowrap text-cyan-950">
+                                        <a href="/analytics/{{$link->id}}"
+                                            class="underline hover:text-red-500">Details</a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

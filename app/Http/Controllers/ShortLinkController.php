@@ -51,8 +51,8 @@ class ShortLinkController extends Controller
             return response(['message' => 'URL not found', 404]);
         }
 
-        // $ip = request()->ip();
-        $ip = '66.102.0.0'; //Googlebot IP
+        $ip = request()->ip(); //Doesn't work when running on localhost
+        // $ip = '66.102.0.0'; //Googlebot IP
         $position = Location::get($ip);
         if ($position && isset($position->countryName)) {
 
@@ -74,7 +74,7 @@ class ShortLinkController extends Controller
 
     public function analytic()
     {
-        $links = ShortLink::latest()->paginate(10);
+        $links = ShortLink::orderBy('id', 'asc')->paginate(10);
 
         return view('analytics', compact('links'));
     }
