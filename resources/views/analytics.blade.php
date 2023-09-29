@@ -39,7 +39,7 @@
                                 <tr>
                                     <td
                                         class="font-medium px-6 py-3 whitespace-nowrap text-red-500 hover:text-cyan-950 underline">
-                                        <a href="/analytics/{{$link->id}}">{{$link->id }}</a>
+                                        <a href="/analytics/{{$link->id}}">{{ $loop->iteration }}</a>
                                     </td>
                                     <td class="font-medium px-6 py-3 whitespace-nowrap text-cyan-950">{{
                                         $link->original_url }}</td>

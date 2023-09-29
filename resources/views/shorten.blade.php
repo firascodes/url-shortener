@@ -25,9 +25,14 @@
                     <a class="ml-4 bg-white px-4 hover:text-red-500" href="{{session('shortened_url')}}"
                         target="_blank">{{session('shortened_url')}}</a>
 
+                    <div class="items-center justify-center">
+                        <a href="/analytics/{{session('id')}}"
+                            class="hover:text-cyan-950 mx-4 text-red-500 text-xs w-min">Details</a>
+                    </div>
                 </div>
             </div>
             @endif
+
 
         </div>
     </section>
