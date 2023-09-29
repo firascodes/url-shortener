@@ -6,6 +6,7 @@ use App\Models\ShortLink;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Stevebauman\Location\Facades\Location;
+use Vinkla\Hashids\Facades\Hashids;
 
 class ShortLinkController extends Controller
 {
@@ -15,29 +16,31 @@ class ShortLinkController extends Controller
             'original_url' => 'required|url'
         ]);
 
-        $shortened_url = Str::random(6); //Fine for small scale
-
-        //Implement hashids library for large scale
-
-
-
-        //Incase of a collision! Generate a new one!
-        while (ShortLink::where('shortened_url', $shortened_url)->exists()) {
-            $shortened_url = Str::random(6); //random string of length 6
-        }
-
         $link = ShortLink::create([
             'original_url' => $request->original_url,
+        ]);
+
+        // //Generate a random string of length 6 ------------
+
+        // $shortened_url = Str::random(6); //Fine for small scale
+        // //Incase of a collision! Generate a new one!
+        // while (ShortLink::where('shortened_url', $shortened_url)->exists()) {
+        //     $shortened_url = Str::random(6); //random string of length 6
+        // }
+
+        //Implement hashids library for large scale
+        $shortened_url = Hashids::encode($link->id); //Encode the id 
+
+        $link->update([
             'shortened_url' => $shortened_url,
         ]);
 
+
         $fullURL = url('/') . '/' . $link->shortened_url;
 
-        if (request()->expectsJson()) {
-            return response(['fullURL' => $fullURL], 200); //return json response
-        }
-
-        return redirect()->back()->with('shortened_url', $fullURL);
+        return redirect()->back()
+            ->with('shortened_url', $fullURL)
+            ->with('id', $link->id);
 
     }
 
@@ -86,15 +89,13 @@ class ShortLinkController extends Controller
             'original_url' => 'required|url'
         ]);
 
-        $shortened_url = Str::random(6);
-
-        //Incase of a collision! Generate a new one!
-        while (ShortLink::where('shortened_url', $shortened_url)->exists()) {
-            $shortened_url = Str::random(6); //random string of length 6
-        }
-
         $link = ShortLink::create([
             'original_url' => $request->original_url,
+        ]);
+
+        $shortened_url = Hashids::encode($link->id); //Encode the id
+
+        $link->update([
             'shortened_url' => $shortened_url,
         ]);
 
