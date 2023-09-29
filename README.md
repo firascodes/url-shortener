@@ -1,5 +1,9 @@
 # URL-Shortener
-![Laravel Logo](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg)
+<div align="center">
+    <img src="https://github.com/firascodes/url-shortener/assets/72166289/1b0ad093-01e7-469e-97e6-e86d43daf39a" width="400">
+    <img src="https://github.com/firascodes/url-shortener/assets/72166289/ebca56d8-47e3-4891-b832-7a80c23d9b6a" width="400">
+</div>
+
 
 ## About Laravel URL Shortener
 
